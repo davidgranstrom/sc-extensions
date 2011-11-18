@@ -1,8 +1,9 @@
-// David Granstrom 09/11/2011 
+// a mirrored arithmetic series
+// dg 18/11/2011 
 
-PmirFib : Pattern {
+PmirrorA : Pattern {
 
-    var <>size, <>step=0.0, <>start=1.0, <>length=inf;
+    var <>size, <>start=0.0, <>step=1.0, <>length=inf;
 
     *new{|... args|
         ^super.newCopyArgs(*args)
@@ -13,16 +14,16 @@ PmirFib : Pattern {
     embedInStream{|inval|
 
         var inSize=  size.asStream;
-        var inStep=  step.asStream;
         var inStart= start.asStream;
+        var inStep=  step.asStream;
 
         length.value(inval).do{
-            var arr= Array.fib(
+            var arr= Array.series(
                                inSize.next(inval), 
-                               inStep.next(inval),
-                               inStart.next(inval) 
+                               inStart.next(inval),
+                               inStep.next(inval)
             );
-            arr.mirror1.do{|x| inval= x.yield };
+        arr.mirror1.do{|x| inval= x.yield };
         }
         ^inval;
     }                                 

@@ -1,14 +1,15 @@
-// David Granstrom 09/11/2011 
-// inspired from a workshop with Sergio Luque.
+// a mirrored geometrical series
+// dg 09/11/2011 
+// inspired from a workshop with sergio luque
 
-PmirGeom : Pattern {
+PmirrorG : Pattern {
 
     var <>size, <>start, <>grow, <>length=inf;
-
+    
     *new{|... args|
         ^super.newCopyArgs(*args)
     }
-
+            
     storeArgs{ ^[size,start,grow,length] }
 
     embedInStream{|inval|
@@ -23,8 +24,8 @@ PmirGeom : Pattern {
                                 inStart.next(inval), 
                                 inGrow.next(inval)
             );
-            arr.mirror1.do{|x| inval= x.yield };
+        arr.mirror1.do{|x| inval= x.yield };
         }
         ^inval;
-    }
+    }                                 
 }
