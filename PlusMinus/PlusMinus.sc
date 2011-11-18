@@ -1,5 +1,5 @@
-// tool for realizing Stockhausen's piece "Plus Minus" 
-// David Granstrom 31/10/2011 
+// tool for realizing stockhausen's piece "plus minus"
+// david granstrom 31/10/2011 
 
 PlusMinus {
 

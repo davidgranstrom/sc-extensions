@@ -1,8 +1,8 @@
-// fill an array with random values and append leading and trailing zeroes.
-// useful when creating level segments for envelopes.
-// david granstrom, 22/09/2011
+// fill an array with random values and append leading and trailing zeroes
+// useful when creating level segments for envelopes
+// dg 22/09/2011
 
-+ SimpleNumber {
++ SimpleNumber{
 
     levels{|min, max, dist=\lin|
     

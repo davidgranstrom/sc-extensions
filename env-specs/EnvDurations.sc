@@ -1,8 +1,8 @@
-// fill an array with random values with a fixed total sum.
-// useful when creating time segments for envelopes.
-// david granstrom, 22/09/2011
+// fill an array with random values with a fixed total sum
+// useful when creating time segments for envelopes
+// dg 22/09/2011
 
-+ SimpleNumber {
++ SimpleNumber{
 
     durations{|totalDur, dist=\lin|
     
