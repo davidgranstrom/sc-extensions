@@ -5,7 +5,7 @@
         var sorted  = this.sort;
         var mode, maxItems, idx = [], counts = [];
         sortedN.do {|n|
-            counts = counts.add(sorted.select {|nx| nx == n }.size);
+            counts = counts.add(sorted.occurrencesOf(n));
         };
         // see if we have more than one mode
         maxItems = counts.select {|x| x == counts.maxItem };
