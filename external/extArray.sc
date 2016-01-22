@@ -5,33 +5,29 @@
     //
     // M = (L + R) -3dB
     // S = (L - R) -3dB
-    toMS {
-        var mid, side;
-
-        if(this.size != 2) {
-            "Signal needs to be 2 channels".throw;
-        };
-
-        mid  = (this[0] + this[1]) * -3.dbamp;
-        side = (this[0] - this[1]) * -3.dbamp;
-
-        ^[ mid, side ];
-    }
-
+    //
     // Decoding
     //
     // L = (M + S) -3dB
     // R = (M - S) -3dB
-    toLR {
-        var left, right;
+    msMatrix {
+        var ch1, ch2;
 
-        if(this.size != 2) {
-            "Signal needs to be 2 channels".throw;
+        if(this.numChannels !== 2) {
+            ^Error("Signal needs to be 2 channels").throw;
         };
 
-        left  = (this[0] + this[1]) * -3.dbamp;
-        right = (this[0] - this[1]) * -3.dbamp;
+        ch1 = (this[0] + this[1]) * -3.dbamp;
+        ch2 = (this[0] - this[1]) * -3.dbamp;
 
-        ^[ left, right ];
+        ^[ ch1, ch2 ];
+    }
+
+    toMS {
+        ^this.msMatrix;
+    }
+
+    toLR {
+        ^this.msMatrix;
     }
 }
